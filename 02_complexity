@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH --job-name=jellyfish-count
+#SBATCH --output=%x_%j.out
+#SBATCH --error=%x_%j.err
+#SBATCH --time=10:00:00
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=12
+#SBATCH --mem=12GB
+
+module add jellyfish
+
+jellyfish count -m 21 -s 100M -t 12 -C -o ${1}.jf ./fastq/${1}.fq
+
+jellyfish histo -t 20 ${1}.jf > ${1}.hist
