@@ -15,3 +15,5 @@ module load minimap2/2.17
 
 ragtag.py scaffold -o ${1}_ragtag_gup -t 4 GCF_019740435.1_gambusia23.fa \
 ${1}_kraken_filtered.fa
+
+seqkit stats -a ${1}.ragtag.scaffold.fasta
