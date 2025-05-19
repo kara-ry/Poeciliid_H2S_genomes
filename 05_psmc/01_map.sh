@@ -11,9 +11,9 @@
 #SBATCH --cpus-per-task=8 # 2 CPUs per job
 #SBATCH --mem=20GB # Memory limit 20GB
 
-module load minimap2/m2-2.17 hb hb-gnu
+module load minimap2/2.24 hb hb-gnu
 
 # Submit as sbatch 01_map.sh genome reads output_sam
 # -ax asm20 is for hifi reads
 
-minimap2 -ax asm20 $1 $2 > $3
+minimap2 -ax map-hifi $1 $2 > $3
